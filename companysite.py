@@ -13,25 +13,25 @@ aboutCompany = '''
 st.header(companyName)
 st.write(aboutCompany)
 
+st.subheader("Our Team")
 col1,col2,col3=st.columns(3)
 
-st.write(f"Our Team")
 emp_df= pandas.read_csv('data.csv')
 
 with col1:
     for index, row in emp_df[:4].iterrows():
-        st.header(row["first name"])
+        st.subheader(f"{row['first name'].capitalize()} {row['last name'].capitalize()}")
         st.write(row["role"])
         st.image("images/" + row["image"])
 
 with col2:
     for index, row in emp_df[4:8].iterrows():
-        st.header(row["first name"])
+        st.subheader(f"{row['first name'].capitalize()} {row['last name'].capitalize()}")
         st.write(row["role"])
         st.image("images/" + row["image"])
 
 with col3:
     for index, row in emp_df[8:].iterrows():
-        st.header(row["first name"])
+        st.subheader(f"{row['first name'].capitalize()} {row['last name'].capitalize()}")
         st.write(row["role"])
         st.image("images/" + row["image"])
